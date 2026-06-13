@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gabs Lobo — Website Concept Mock-ups</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600&family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #1a1a1a;
+      font-family: sans-serif;
+      color: #fff;
+    }
+
+    /* ── Page header ── */
+    .page-header {
+      text-align: center;
+      padding: 60px 24px 40px;
+    }
+    .page-header h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(22px, 3vw, 36px);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #e8e8e8;
+    }
+    .page-header p {
+      font-family: 'Outfit', sans-serif;
+      font-size: 15px;
+      font-weight: 300;
+      color: #999;
+      margin-top: 10px;
+      letter-spacing: 0.04em;
+    }
+    .concepts-label {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+    .concept-tag {
+      font-family: 'Outfit', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+      border: 1px solid #444;
+      color: #aaa;
+    }
+
+    /* ── Concept wrapper ── */
+    .concept {
+      max-width: 1100px;
+      margin: 0 auto 80px;
+      padding: 0 24px;
+    }
+    .concept-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #2e2e2e;
+      max-width: 1100px;
+      margin: 0 auto 80px;
+    }
+
+
+    /* ════════════════════════════════════════
+       CONCEPT A — GLAZED PETAL
+    ════════════════════════════════════════ */
+    .a-card {
+      background: #FAF7F2;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    /* Hero */
+    .a-hero {
+      background: linear-gradient(135deg, #FAF7F2 0%, #F5EDE4 60%, #F2C4B2 100%);
+      padding: 70px 60px 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .a-nav {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .a-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: #2C1810;
+      text-transform: uppercase;
+    }
+    .a-nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .a-nav-links li a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: #5C3D30;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .a-hero-text {}
+    .a-eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #C8927A;
+      margin-bottom: 16px;
+    }
+    .a-h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(40px, 5vw, 64px);
+      font-weight: 300;
+      line-height: 1.1;
+      color: #2C1810;
+      margin-bottom: 20px;
+    }
+    .a-h1 em {
+      font-style: italic;
+      color: #C8927A;
+    }
+    .a-body {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: #6B4535;
+      max-width: 400px;
+      margin-bottom: 32px;
+    }
+    .a-btn-primary {
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      background: #C8927A;
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 100px;
+      text-decoration: none;
+      margin-right: 14px;
+    }
+    .a-btn-ghost {
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      background: transparent;
+      color: #2C1810;
+      padding: 13px 32px;
+      border-radius: 100px;
+      text-decoration: none;
+      border: 1px solid #C8927A;
+    }
+    .a-hero-image {
+      background: linear-gradient(160deg, #F2C4B2 0%, #C8927A 100%);
+      border-radius: 16px;
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .a-hero-image span {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14px;
+      font-style: italic;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 0.1em;
+    }
+
+    /* Palette + type row */
+    .a-details {
+      background: #fff;
+      padding: 36px 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+    .detail-section h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #aaa;
+      margin-bottom: 16px;
+    }
+    .swatches {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .swatch {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .swatch-circle {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    .swatch-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 9px;
+      color: #999;
+      letter-spacing: 0.04em;
+    }
+    .type-sample {}
+    .type-sample .t-serif {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 300;
+      color: #2C1810;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .type-sample .t-serif-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 300;
+      font-style: italic;
+      color: #C8927A;
+      margin-bottom: 10px;
+    }
+    .type-sample .t-sans {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      color: #6B4535;
+      line-height: 1.7;
+    }
+
+    /* Vibe tag */
+    .vibe-bar {
+      background: #FAF7F2;
+      padding: 20px 60px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .vibe-tag {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      padding: 5px 14px;
+      border-radius: 100px;
+      background: #F2C4B2;
+      color: #2C1810;
+    }
+    .vibe-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      color: #999;
+      letter-spacing: 0.06em;
+    }
+
+
+    /* ════════════════════════════════════════
+       CONCEPT B — CHAMPAGNE & MAUVE
+    ════════════════════════════════════════ */
+    .b-card {
+      background: #FEFAF5;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .b-hero {
+      background: linear-gradient(120deg, #FEFAF5 0%, #F8F0E6 50%, #EDD9C8 100%);
+      padding: 70px 60px 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .b-nav {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .b-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      color: #2A2A2A;
+      text-transform: uppercase;
+    }
+    .b-nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .b-nav-links li a {
+      font-family: 'Outfit', sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      color: #6B5B52;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .b-eyebrow {
+      font-family: 'Outfit', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #D4B896;
+      margin-bottom: 16px;
+    }
+    .b-h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(38px, 4.5vw, 58px);
+      font-weight: 700;
+      line-height: 1.1;
+      color: #2A2A2A;
+      margin-bottom: 20px;
+    }
+    .b-h1 em {
+      font-style: italic;
+      font-weight: 400;
+      color: #C4908B;
+    }
+    .b-body {
+      font-family: 'Outfit', sans-serif;
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: #6B5B52;
+      max-width: 400px;
+      margin-bottom: 32px;
+    }
+    .b-btn-primary {
+      display: inline-block;
+      font-family: 'Outfit', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      background: #C4908B;
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 4px;
+      text-decoration: none;
+      margin-right: 14px;
+    }
+    .b-btn-ghost {
+      display: inline-block;
+      font-family: 'Outfit', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      background: transparent;
+      color: #2A2A2A;
+      padding: 13px 32px;
+      border-radius: 4px;
+      text-decoration: none;
+      border: 1px solid #D4B896;
+    }
+    .b-hero-image {
+      background: linear-gradient(160deg, #EDD9C8 0%, #C4908B 100%);
+      border-radius: 8px;
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .b-hero-image::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -20%;
+      width: 280px;
+      height: 280px;
+      background: rgba(212, 184, 150, 0.3);
+      border-radius: 50%;
+    }
+    .b-hero-image span {
+      font-family: 'Playfair Display', serif;
+      font-size: 14px;
+      font-style: italic;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.1em;
+      position: relative;
+      z-index: 1;
+    }
+
+    .b-details {
+      background: #fff;
+      padding: 36px 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+    .b-type-sample .t-serif {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: #2A2A2A;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .b-type-sample .t-serif-sub {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 400;
+      font-style: italic;
+      color: #C4908B;
+      margin-bottom: 10px;
+    }
+    .b-type-sample .t-sans {
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      color: #6B5B52;
+      line-height: 1.7;
+    }
+    .b-vibe-bar {
+      background: #FEFAF5;
+      padding: 20px 60px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .b-vibe-tag {
+      font-family: 'Outfit', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      padding: 5px 14px;
+      border-radius: 4px;
+      background: #EDD9C8;
+      color: #2A2A2A;
+    }
+
+
+    /* ════════════════════════════════════════
+       CONCEPT C — VELVET BLOOM
+    ════════════════════════════════════════ */
+    .c-card {
+      background: #FDF0EE;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .c-hero {
+      background: linear-gradient(135deg, #FDF0EE 0%, #F5DDD8 50%, #E8C4BC 100%);
+      padding: 70px 60px 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .c-nav {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .c-logo {
+      font-family: 'Bodoni Moda', serif;
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      color: #1E1212;
+      text-transform: uppercase;
+    }
+    .c-nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .c-nav-links li a {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      color: #6B3A40;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .c-eyebrow {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #C9A87C;
+      margin-bottom: 16px;
+    }
+    .c-h1 {
+      font-family: 'Bodoni Moda', serif;
+      font-size: clamp(38px, 4.8vw, 60px);
+      font-weight: 400;
+      line-height: 1.1;
+      color: #1E1212;
+      margin-bottom: 20px;
+    }
+    .c-h1 em {
+      font-style: italic;
+      color: #9E4F5F;
+    }
+    .c-body {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: #6B3A40;
+      max-width: 400px;
+      margin-bottom: 32px;
+    }
+    .c-btn-primary {
+      display: inline-block;
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      background: #9E4F5F;
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 2px;
+      text-decoration: none;
+      margin-right: 14px;
+    }
+    .c-btn-ghost {
+      display: inline-block;
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      background: transparent;
+      color: #1E1212;
+      padding: 13px 32px;
+      border-radius: 2px;
+      text-decoration: none;
+      border: 1px solid #C9A87C;
+    }
+    .c-hero-image {
+      background: linear-gradient(160deg, #9E4F5F 0%, #6B2D3A 100%);
+      border-radius: 2px;
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .c-hero-image::after {
+      content: '';
+      position: absolute;
+      bottom: -40px;
+      left: -40px;
+      width: 200px;
+      height: 200px;
+      background: rgba(201, 168, 124, 0.2);
+      border-radius: 50%;
+    }
+    .c-hero-image span {
+      font-family: 'Bodoni Moda', serif;
+      font-size: 14px;
+      font-style: italic;
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 0.12em;
+      position: relative;
+      z-index: 1;
+    }
+
+    .c-details {
+      background: #fff;
+      padding: 36px 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+    .c-type-sample .t-serif {
+      font-family: 'Bodoni Moda', serif;
+      font-size: 36px;
+      font-weight: 400;
+      color: #1E1212;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .c-type-sample .t-serif-sub {
+      font-family: 'Bodoni Moda', serif;
+      font-size: 20px;
+      font-weight: 400;
+      font-style: italic;
+      color: #9E4F5F;
+      margin-bottom: 10px;
+    }
+    .c-type-sample .t-sans {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      color: #6B3A40;
+      line-height: 1.7;
+    }
+    .c-vibe-bar {
+      background: #FDF0EE;
+      padding: 20px 60px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .c-vibe-tag {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      padding: 5px 14px;
+      border-radius: 2px;
+      background: rgba(158, 79, 95, 0.12);
+      color: #9E4F5F;
+    }
+
+    /* ── Footer note ── */
+    .page-footer {
+      text-align: center;
+      padding: 48px 24px 80px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      color: #555;
+      letter-spacing: 0.04em;
+    }
+    .page-footer strong {
+      color: #888;
+      font-weight: 500;
+    }
+
+    @media (max-width: 700px) {
+      .a-hero, .b-hero, .c-hero { grid-template-columns: 1fr; padding: 40px 28px; }
+      .a-hero-image, .b-hero-image, .c-hero-image { height: 200px; }
+      .a-details, .b-details, .c-details { grid-template-columns: 1fr; padding: 28px; }
+      .a-nav, .b-nav, .c-nav { flex-direction: column; gap: 16px; text-align: center; }
+      .a-nav-links, .b-nav-links, .c-nav-links { gap: 16px; }
+      .vibe-bar, .b-vibe-bar, .c-vibe-bar { padding: 16px 28px; flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Page header ── -->
+  <header class="page-header">
+    <h1>Gabs Lobo — Aesthetic Concepts</h1>
+    <p>Phase 1 · Three directions for fonts &amp; color palette</p>
+    <div class="concepts-label">
+      <span class="concept-tag">A — Glazed Petal</span>
+      <span class="concept-tag">B — Champagne &amp; Mauve</span>
+      <span class="concept-tag">C — Velvet Bloom</span>
+    </div>
+  </header>
+
+
+  <!-- ════════════════════════════════
+       CONCEPT A
+  ════════════════════════════════ -->
+  <section class="concept">
+    <p class="concept-label">Concept A — Glazed Petal &nbsp;·&nbsp; Cormorant Garamond + DM Sans</p>
+    <div class="a-card">
+
+      <!-- Hero preview -->
+      <div class="a-hero">
+        <nav class="a-nav">
+          <span class="a-logo">Gabs Lobo</span>
+          <ul class="a-nav-links">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="a-hero-text">
+          <p class="a-eyebrow">UGC Creator · Beauty &amp; Makeup</p>
+          <h1 class="a-h1">Creating content<br>that <em>converts</em></h1>
+          <p class="a-body">Hey, I'm Gabs — a beauty and makeup content creator helping brands connect with real audiences through authentic, scroll-stopping UGC.</p>
+          <a href="#" class="a-btn-primary">Work with me</a>
+          <a href="#" class="a-btn-ghost">View portfolio</a>
+        </div>
+
+        <div class="a-hero-image">
+          <span>Hero photo goes here</span>
+        </div>
+      </div>
+
+      <!-- Details row -->
+      <div class="a-details">
+        <div class="detail-section">
+          <h3>Color Palette</h3>
+          <div class="swatches">
+            <div class="swatch">
+              <div class="swatch-circle" style="background:#FAF7F2;"></div>
+              <span class="swatch-label">#FAF7F2</span>
+            </div>
+            <div class="swatch">
+              <div class="swatch-circle" style="background:#C8927A;"></div>
+              <span class="swatch-label">#C8927A</span>
+            </div>
+            <div class="swatch">
+              <div class="swatch-circle" style="background:#F2C4B2;"></div>
+              <span class="swatch-label">#F2C4B2</span>
+            </div>
+            <div class="swatch">
+              <div class="swatch-circle" style="background:#2C1810;"></div>
+              <span class="swatch-label">#2C1810</span>
+            </div>
+            <div class="swatch">
+              <div class="swatch-circle" style="background:#6B4535;"></div>
+              <span class="swatch-label">#6B4535</span>
+            </div>
+          </div>
+        </div>
+        <div class="detail-section">
+          <h3>Typography</h3>
+          <div class="type-sample">
+            <div class="t-serif">Cormorant Garamond</div>
+            <div class="t-serif-sub">Headlines &amp; display — elegant, literary</div>
+            <div class="t-sans">DM Sans — body text, labels, and UI. Clean, warm, and highly readable at any size.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vibe tags -->
+      <div class="vibe-bar">
+        <span class="vibe-label">Vibe:</span>
+        <span class="vibe-tag">Dewy &amp; Fresh</span>
+        <span class="vibe-tag">Charlotte Tilbury</span>
+        <span class="vibe-tag">Rare Beauty</span>
+        <span class="vibe-tag">Soft Terracotta</span>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+
+  <!-- ════════════════════════════════
+       CONCEPT B
+  ════════════════════════════════ -->
+  <section class="concept">
+    <p class="concept-label">Concept B — Champagne &amp; Mauve &nbsp;·&nbsp; Playfair Display + Outfit</p>
+    <div class="b-card">
+
+      <div class="b-hero">
+        <nav class="b-nav">
+          <span class="b-logo">Gabs Lobo</span>
+          <ul class="b-nav-links">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <p class="b-eyebrow">UGC Creator · Beauty &amp; Makeup</p>
+          <h1 class="b-h1">Beauty content<br>built to <em>perform</em></h1>
+          <p class="b-body">Hey, I'm Gabs — a beauty and makeup content creator helping brands connect with real audiences through authentic, scroll-stopping UGC.</p>
+          <a href="#" class="b-btn-primary">Work with me</a>
+          <a href="#" class="b-btn-ghost">View portfolio</a>
+        </div>
+
+        <div class="b-hero-image">
+          <span>Hero photo goes here</span>
+        </div>
+      </div>
+
+      <div class="b-details">
+        <div class="detail-section">
+          <h3>Color Palette</h3>
+          <div class="swatches">
+            <div class="swatch">
+              <div class="swatch-circle" style="background:#FEFAF5;"></div>
+              <span class="swatch-label">#FEFAF5</span>
+            </div>
+            <div class="swatch">
+              <div class="swatch-circle" style="background:#C4908B;"></div>
+              <span class="swatch-label">#C4908B</span>
+            </div>
+            <div class="swatch">
+              <div class="swatch-circle" style="background:#D4B896;"></div>
+              <span class="swatch-label">#D4B896</span>
+            </div>
+            <div class="swatch">
+              <div class="swatch-circle" style="background:#2A2A2A;"></div>
+              <span class="swatch-label">#2A2A2A</span>
+            </div>
+            <div class="swatch">
+              <div class="swatch-circle" style="background:#EDD9C8;"></div>
+              <span class="swatch-label">#EDD9C8</span>
+            </div>
+          </div>
+        </div>
+        <div class="detail-section">
+          <h3>Typography</h3>
+          <div class="b-type-sample">
+            <div class="t-serif">Playfair Display</div>
+            <div class="t-serif-sub">Headlines &amp; display — timeless, magazine</div>
+            <div class="t-sans">Outfit — body text, labels, and UI. Sleek and contemporary at every weight.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="b-vibe-bar">
+        <span class="vibe-label">Vibe:</span>
+        <span class="b-vibe-tag">Timeless Glamour</span>
+        <span class="b-vibe-tag">Dior Beauty</span>
+        <span class="b-vibe-tag">Sephora Editorial</span>
+        <span class="b-vibe-tag">Warm Champagne</span>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+
+  <!-- ════════════════════════════════
+       CONCEPT C
+  ════════════════════════════════ -->
+  <section class="concept">
+    <p class="concept-label">Concept C — Velvet Bloom &nbsp;·&nbsp; Bodoni Moda + Nunito Sans</p>
+    <div class="c-card">
+
+      <div class="c-hero">
+        <nav class="c-nav">
+          <span class="c-logo">Gabs Lobo</span>
+          <ul class="c-nav-links">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <p class="c-eyebrow">UGC Creator · Beauty &amp; Makeup</p>
+          <h1 class="c-h1">Bold beauty.<br><em>Real results.</em></h1>
+          <p class="c-body">Hey, I'm Gabs — a beauty and makeup content creator helping brands connect with real audiences through authentic, scroll-stopping UGC.</p>
+          <a href="#" class="c-btn-primary">Work with me</a>
+          <a href="#" class="c-btn-ghost">View portfolio</a>
+        </div>
+
+        <div class="c-hero-image">
+          <span>Hero photo goes here</span>
+        </div>
+      </div>
+
+      <div class="c-details">
+        <div class="detail-section">
+          <h3>Color Palette</h3>
+          <div class="swatches">
+            <div class="swatch">
+              <div class="swatch-circle" style="background:#FDF0EE;"></div>
+              <span class="swatch-label">#FDF0EE</span>
+            </div>
+            <div class="swatch">
+              <div class="swatch-circle" style="background:#9E4F5F;"></div>
+              <span class="swatch-label">#9E4F5F</span>
+            </div>
+            <div class="swatch">
+              <div class="swatch-circle" style="background:#C9A87C;"></div>
+              <span class="swatch-label">#C9A87C</span>
+            </div>
+            <div class="swatch">
+              <div class="swatch-circle" style="background:#1E1212;"></div>
+              <span class="swatch-label">#1E1212</span>
+            </div>
+            <div class="swatch">
+              <div class="swatch-circle" style="background:#E8C4BC;"></div>
+              <span class="swatch-label">#E8C4BC</span>
+            </div>
+          </div>
+        </div>
+        <div class="detail-section">
+          <h3>Typography</h3>
+          <div class="c-type-sample">
+            <div class="t-serif">Bodoni Moda</div>
+            <div class="t-serif-sub">Headlines &amp; display — editorial, high-fashion</div>
+            <div class="t-sans">Nunito Sans — body text, labels, and UI. Warm, rounded, and approachable to balance the bold headlines.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="c-vibe-bar">
+        <span class="vibe-label">Vibe:</span>
+        <span class="c-vibe-tag">Moody Soft Glam</span>
+        <span class="c-vibe-tag">Pat McGrath</span>
+        <span class="c-vibe-tag">Armani Beauty</span>
+        <span class="c-vibe-tag">Deep Rose + Gold</span>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ── Footer note ── -->
+  <footer class="page-footer">
+    <strong>Phase 1 Mock-up</strong> &nbsp;·&nbsp; Pick a concept (or mix elements) to proceed to the full build
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gabs Lobo — UGC Creator · Beauty &amp; Makeup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    /* ══════════════════════════════════════
+       VARIABLES & RESET
+    ══════════════════════════════════════ */
+    :root {
+      --cream:       #FEFAF5;
+      --mauve:       #C4908B;
+      --mauve-dark:  #B07F7A;
+      --gold:        #D4B896;
+      --dark:        #2A2A2A;
+      --mid:         #6B5B52;
+      --light:       #EDD9C8;
+      --section-alt: #F8F0E6;
+      --border:      rgba(212, 184, 150, 0.35);
+      --font-serif:  'Playfair Display', Georgia, serif;
+      --font-sans:   'Outfit', system-ui, sans-serif;
+      --max-w:       1100px;
+      --radius:      4px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--dark);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ══════════════════════════════════════
+       UTILITIES
+    ══════════════════════════════════════ */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .eyebrow {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    section { padding: 100px 0; }
+    section.alt { background: var(--section-alt); }
+
+    /* ══════════════════════════════════════
+       NAVBAR
+    ══════════════════════════════════════ */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      padding: 26px 0;
+      transition: background 0.35s ease, box-shadow 0.35s ease, padding 0.35s ease;
+    }
+
+    .nav.scrolled {
+      background: rgba(254, 250, 245, 0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 1px 0 var(--border);
+      padding: 16px 0;
+    }
+
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--dark);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--mauve); }
+
+    .nav-cta {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      background: var(--mauve);
+      color: #fff;
+      padding: 11px 26px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .nav-cta:hover { background: var(--mauve-dark); }
+
+    /* Hamburger */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--dark);
+      transition: all 0.3s;
+    }
+
+    /* Mobile overlay */
+    .nav-mobile {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--cream);
+      z-index: 199;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
+    }
+
+    .nav-mobile.open { display: flex; }
+
+    .nav-mobile a {
+      font-family: var(--font-serif);
+      font-size: 30px;
+      font-weight: 400;
+      color: var(--dark);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      transition: color 0.2s;
+    }
+
+    .nav-mobile a:hover { color: var(--mauve); }
+
+    .nav-mobile-close {
+      position: absolute;
+      top: 28px; right: 40px;
+      font-size: 26px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--mid);
+      line-height: 1;
+    }
+
+    /* ══════════════════════════════════════
+       HERO
+    ══════════════════════════════════════ */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 80px;
+      background: linear-gradient(130deg, var(--cream) 0%, #F8F0E8 55%, #EDD9C8 100%);
+      position: relative;
+    }
+
+    .hero-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hero-greeting {
+      display: block;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 16px;
+      color: var(--mauve);
+      margin-bottom: 20px;
+      letter-spacing: 0.04em;
+    }
+
+    .hero-h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(44px, 5.2vw, 70px);
+      font-weight: 700;
+      line-height: 1.06;
+      color: var(--dark);
+      margin-bottom: 28px;
+    }
+
+    .hero-h1 em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--mauve);
+    }
+
+    .hero-sub {
+      font-family: var(--font-sans);
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--mid);
+      max-width: 440px;
+      margin-bottom: 44px;
+    }
+
+    .hero-sub strong {
+      font-weight: 500;
+      color: var(--dark);
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      background: var(--mauve);
+      color: #fff;
+      padding: 16px 38px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s;
+    }
+
+    .btn-primary:hover { background: var(--mauve-dark); }
+
+    .btn-ghost {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      background: transparent;
+      color: var(--dark);
+      padding: 15px 38px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      display: inline-block;
+      border: 1px solid var(--gold);
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--mauve);
+      color: var(--mauve);
+    }
+
+    /* Hero image */
+    .hero-image {
+      border-radius: 8px;
+      aspect-ratio: 3 / 4;
+      max-height: 580px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(155deg, #EDD9C8 0%, #C4908B 70%, #A07068 100%);
+    }
+
+    .hero-image::before {
+      content: '';
+      position: absolute;
+      top: -50px; right: -50px;
+      width: 260px; height: 260px;
+      background: rgba(212, 184, 150, 0.22);
+      border-radius: 50%;
+    }
+
+    .hero-image::after {
+      content: '';
+      position: absolute;
+      bottom: -70px; left: -50px;
+      width: 320px; height: 320px;
+      background: rgba(255, 255, 255, 0.07);
+      border-radius: 50%;
+    }
+
+    .hero-image-inner {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .hero-image-icon {
+      font-size: 36px;
+      margin-bottom: 12px;
+      opacity: 0.6;
+    }
+
+    .hero-image-label {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 15px;
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 0.06em;
+      display: block;
+    }
+
+    .hero-image-sub {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-top: 8px;
+      display: block;
+    }
+
+    /* Scroll cue */
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-sans);
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.6;
+    }
+
+    .hero-scroll-line {
+      width: 1px;
+      height: 44px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; transform: scaleY(0.6); }
+      50%       { opacity: 1;   transform: scaleY(1); }
+    }
+
+    /* ══════════════════════════════════════
+       ABOUT
+    ══════════════════════════════════════ */
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 88px;
+      align-items: center;
+    }
+
+    .about-h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 3.6vw, 50px);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--dark);
+      margin-bottom: 28px;
+    }
+
+    .about-h2 em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--mauve);
+    }
+
+    .about-p {
+      font-family: var(--font-sans);
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.9;
+      color: var(--mid);
+      margin-bottom: 18px;
+    }
+
+    .about-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 12px;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--mauve);
+    }
+
+    .about-badge::before {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 1px;
+      background: var(--mauve);
+    }
+
+    /* Stat cards */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .stat-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 32px 36px;
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+
+    .stat-card:hover {
+      box-shadow: 0 6px 28px rgba(196, 144, 139, 0.12);
+    }
+
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--mauve);
+    }
+
+    .stat-number {
+      font-family: var(--font-serif);
+      font-size: 52px;
+      font-weight: 400;
+      color: var(--dark);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+
+    /* ══════════════════════════════════════
+       PORTFOLIO
+    ══════════════════════════════════════ */
+    .portfolio-header {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+
+    .portfolio-h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 3.6vw, 50px);
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
+    .portfolio-h2 em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--mauve);
+    }
+
+    .portfolio-sub {
+      font-family: var(--font-sans);
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--mid);
+    }
+
+    /* Tabs */
+    .tab-bar {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 11px 26px;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--mid);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .tab-btn:hover {
+      border-color: var(--mauve);
+      color: var(--mauve);
+    }
+
+    .tab-btn.active {
+      background: var(--mauve);
+      border-color: var(--mauve);
+      color: #fff;
+    }
+
+    /* Panels */
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* Grid */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .portfolio-card {
+      background: linear-gradient(155deg, #EDD9C8 0%, #C4908B 100%);
+      border-radius: var(--radius);
+      aspect-ratio: 9 / 14;
+      max-height: 360px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 20px 16px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .portfolio-card:hover { transform: translateY(-4px); }
+
+    /* Slight variation per card so the grid doesn't look identical */
+    .portfolio-card:nth-child(2) { background: linear-gradient(155deg, #C4908B 0%, #A07068 100%); }
+    .portfolio-card:nth-child(3) { background: linear-gradient(155deg, #D4B896 0%, #C4908B 100%); }
+    .portfolio-card:nth-child(4) { background: linear-gradient(155deg, #E0CAB4 0%, #C4908B 100%); }
+    .portfolio-card:nth-child(5) { background: linear-gradient(155deg, #C4908B 0%, #E0CAB4 100%); }
+    .portfolio-card:nth-child(6) { background: linear-gradient(155deg, #A87A74 0%, #D4B896 100%); }
+
+    .portfolio-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(30, 16, 10, 0.65) 0%, transparent 55%);
+    }
+
+    /* Play button ring */
+    .portfolio-card-play {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -58%);
+      width: 52px;
+      height: 52px;
+      border: 1.5px solid rgba(255,255,255,0.65);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .portfolio-card:hover .portfolio-card-play {
+      border-color: rgba(255,255,255,0.95);
+      transform: translate(-50%, -58%) scale(1.08);
+    }
+
+    .portfolio-card-play::after {
+      content: '';
+      border-left: 18px solid rgba(255,255,255,0.75);
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      margin-left: 4px;
+    }
+
+    .portfolio-card-label {
+      position: relative;
+      z-index: 1;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      text-align: center;
+    }
+
+    .portfolio-note {
+      text-align: center;
+      margin-top: 44px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--mid);
+      opacity: 0.7;
+    }
+
+    /* ══════════════════════════════════════
+       SERVICES
+    ══════════════════════════════════════ */
+    .services-h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 3.6vw, 50px);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--dark);
+      margin-bottom: 20px;
+    }
+
+    .services-h2 em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--mauve);
+    }
+
+    .services-intro {
+      font-family: var(--font-sans);
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--mid);
+      max-width: 540px;
+      margin-bottom: 60px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    /* 5th card centred on bottom row */
+    .services-grid .service-card:nth-child(4) { grid-column: 1; }
+    .services-grid .service-card:nth-child(5) { grid-column: 2; }
+
+    .service-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 36px 32px;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+
+    .service-card:hover {
+      box-shadow: 0 10px 36px rgba(196, 144, 139, 0.15);
+      transform: translateY(-3px);
+    }
+
+    .service-icon {
+      font-size: 30px;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .service-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+
+    .service-desc {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--mid);
+    }
+
+    /* ══════════════════════════════════════
+       BRAND COLLABS
+    ══════════════════════════════════════ */
+    .brands-header {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+
+    .brands-h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 3.2vw, 44px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--dark);
+      line-height: 1.2;
+    }
+
+    /* Carousel */
+    .brands-carousel {
+      position: relative;
+      max-width: 100%;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .brands-carousel::before,
+    .brands-carousel::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 80px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .brands-carousel::before {
+      left: 0;
+      background: linear-gradient(to right, var(--section-alt), transparent);
+    }
+
+    .brands-carousel::after {
+      right: 0;
+      background: linear-gradient(to left, var(--section-alt), transparent);
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 32px;
+      width: max-content;
+      padding: 16px 0;
+      animation: brandScroll 35s linear infinite;
+    }
+
+    .carousel-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes brandScroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    .brand-logo {
+      flex: 0 0 auto;
+      min-width: 150px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 24px;
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+
+    .brand-logo:hover {
+      box-shadow: 0 4px 16px rgba(196, 144, 139, 0.15);
+    }
+
+    .brand-logo img {
+      max-width: 100%;
+      max-height: 44px;
+      width: auto;
+      object-fit: contain;
+      filter: grayscale(100%);
+      opacity: 0.55;
+      transition: filter 0.3s, opacity 0.3s;
+    }
+
+    .brand-logo:hover img {
+      filter: grayscale(0%);
+      opacity: 1;
+    }
+
+    .brand-logo-text {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      color: var(--mid);
+      text-align: center;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      opacity: 0.6;
+      transition: opacity 0.2s, color 0.2s;
+    }
+
+    .brand-logo:hover .brand-logo-text {
+      opacity: 1;
+      color: var(--mauve);
+    }
+
+    /* ══════════════════════════════════════
+       CONTACT
+    ══════════════════════════════════════ */
+    .contact-section {
+      background: var(--dark);
+      padding: 100px 0;
+    }
+
+    .contact-inner {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .contact-eyebrow {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .contact-h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 4.2vw, 56px);
+      font-weight: 400;
+      font-style: italic;
+      color: #fff;
+      line-height: 1.18;
+      margin-bottom: 22px;
+    }
+
+    .contact-p {
+      font-family: var(--font-sans);
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 52px;
+    }
+
+    .contact-email-display {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-style: italic;
+      color: var(--gold);
+      letter-spacing: 0.06em;
+      margin: 0;
+      cursor: pointer;
+      position: relative;
+      display: inline-block;
+      transition: color 0.2s;
+    }
+
+    .contact-email-display:hover {
+      color: #fff;
+    }
+
+    .contact-email-tooltip {
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.15);
+      color: var(--gold);
+      padding: 8px 14px;
+      border-radius: 4px;
+      font-family: var(--font-sans);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s;
+      margin-bottom: 8px;
+    }
+
+    .contact-email-display:hover .contact-email-tooltip {
+      opacity: 1;
+    }
+
+    .contact-divider {
+      width: 40px;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.12);
+      margin: 0 auto 40px;
+    }
+
+    .contact-handle {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.3);
+      letter-spacing: 0.06em;
+    }
+
+    /* ══════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════ */
+    .footer {
+      background: #1A1210;
+      padding: 40px 40px 32px;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    .footer-social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      text-decoration: none;
+      transition: all 0.25s;
+      opacity: 0.5;
+      color: var(--gold);
+      font-size: 20px;
+    }
+
+    .footer-social-link:hover {
+      opacity: 1;
+      color: var(--mauve);
+      background: rgba(196, 144, 139, 0.12);
+    }
+
+    .footer p {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: rgba(255, 255, 255, 0.2);
+      margin: 0;
+    }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .services-grid .service-card:nth-child(4),
+      .services-grid .service-card:nth-child(5) { grid-column: auto; }
+    }
+
+    @media (max-width: 768px) {
+      section { padding: 72px 0; }
+      .container { padding: 0 24px; }
+
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-inner { padding: 0 24px; }
+
+      .hero { padding: 100px 0 64px; }
+      .hero-inner {
+        grid-template-columns: 1fr;
+        padding: 0 24px;
+        gap: 48px;
+        text-align: center;
+      }
+      .hero-sub { max-width: 100%; }
+      .hero-btns { justify-content: center; }
+      .hero-image { aspect-ratio: 4/3; max-height: 300px; }
+
+      .about-inner { grid-template-columns: 1fr; gap: 48px; }
+      .stats-grid { grid-template-columns: repeat(3, 1fr); }
+      .stat-number { font-size: 40px; }
+
+      .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .services-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .hero-btns { flex-direction: column; align-items: center; }
+      .btn-primary, .btn-ghost { width: 100%; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════════════════════════════════
+       NAVBAR
+  ════════════════════════════════ -->
+  <nav class="nav" id="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo">Gabs Lobo</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#brands">Brands</a></li>
+      </ul>
+      <a href="#contact" class="nav-cta">Work with me</a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile overlay nav -->
+  <div class="nav-mobile" id="mobileNav" aria-hidden="true">
+    <button class="nav-mobile-close" id="mobileClose" aria-label="Close menu">&#x2715;</button>
+    <a href="#about"     class="mobile-link">About</a>
+    <a href="#portfolio" class="mobile-link">Portfolio</a>
+    <a href="#services"  class="mobile-link">Services</a>
+    <a href="#brands"    class="mobile-link">Brands</a>
+    <a href="#contact"   class="mobile-link">Contact</a>
+  </div>
+
+
+  <!-- ════════════════════════════════
+       HERO
+  ════════════════════════════════ -->
+  <section class="hero" id="home">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <span class="hero-greeting">Hola, soy Gabi ✦</span>
+        <h1 class="hero-h1">Beauty content<br>that feels <em>real.</em></h1>
+        <p class="hero-sub">
+          I'm a bilingual UGC creator specializing in beauty and makeup —
+          helping brands connect authentically with
+          <strong>English &amp; Spanish-speaking audiences.</strong>
+        </p>
+        <div class="hero-btns">
+          <a href="#contact"   class="btn-primary">Work with me</a>
+          <a href="#portfolio" class="btn-ghost">View portfolio</a>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <img
+          src="https://m.media-amazon.com/images/I/C1Xmz9NCTOL._CR0%2C0%2C4284%2C4284_._US500_SCLZZZZZZZ_.jpg"
+          alt="Gabi Lobo — UGC Creator"
+          style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"
+        />
+      </div>
+    </div>
+
+    <div class="hero-scroll" aria-hidden="true">
+      <div class="hero-scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════
+       ABOUT
+  ════════════════════════════════ -->
+  <section id="about">
+    <div class="container">
+      <div class="about-inner">
+
+        <div>
+          <span class="eyebrow">About Me</span>
+          <h2 class="about-h2">Authenticity is<br>my <em>signature.</em></h2>
+          <p class="about-p">
+            My name is Gabi — I'm from Venezuela and have been a photographer,
+            videographer, and UGC creator for over five years. I bring genuine
+            passion and a trained eye to every piece of content I create.
+          </p>
+          <p class="about-p">
+            Being fully bilingual means I can connect authentically with both
+            English and Spanish-speaking audiences — giving your brand a wider,
+            more culturally resonant reach. Unboxing and first-impression content
+            are my specialty, and I love making products shine from the very first look.
+          </p>
+          <span class="about-badge">English &amp; Español · @gabslobo__</span>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number">60+</div>
+            <div class="stat-label">Reels &amp; TikToks Posted</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">125k+</div>
+            <div class="stat-label">Total Views</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">8+</div>
+            <div class="stat-label">Brand Partnerships</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════
+       PORTFOLIO
+  ════════════════════════════════ -->
+  <section class="alt" id="portfolio">
+    <div class="container">
+
+      <div class="portfolio-header">
+        <span class="eyebrow">UGC Portfolio</span>
+        <h2 class="portfolio-h2">Content that <em>converts</em></h2>
+        <p class="portfolio-sub">Short-form video &amp; photo content across beauty categories</p>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tab-bar" role="tablist">
+        <button class="tab-btn active" data-tab="skincare" role="tab" aria-selected="true">Skincare &amp; Routine</button>
+        <button class="tab-btn"        data-tab="grwm"     role="tab" aria-selected="false">GRWM</button>
+        <button class="tab-btn"        data-tab="reviews"  role="tab" aria-selected="false">Product Reviews</button>
+        <button class="tab-btn"        data-tab="lifestyle" role="tab" aria-selected="false">Lifestyle</button>
+      </div>
+
+      <!-- Skincare & Routine -->
+      <div class="tab-panel active" id="tab-skincare" role="tabpanel">
+        <div class="portfolio-grid">
+          <div class="portfolio-card" style="background-image:url('https://m.media-amazon.com/images/I/51cimhL4MkL._AC_.jpg');background-size:cover;background-position:center;">
+            <div class="portfolio-card-play" aria-hidden="true"></div>
+            <span class="portfolio-card-label">Morning Routine</span>
+          </div>
+          <div class="portfolio-card" style="background-image:url('https://m.media-amazon.com/images/I/41UYaTLBTxL._AC_.jpg');background-size:cover;background-position:center;">
+            <div class="portfolio-card-play" aria-hidden="true"></div>
+            <span class="portfolio-card-label">Product Unboxing</span>
+          </div>
+          <div class="portfolio-card" style="background-image:url('https://m.media-amazon.com/images/I/51kdQ5+IR9L._AC_.jpg');background-size:cover;background-position:center;">
+            <div class="portfolio-card-play" aria-hidden="true"></div>
+            <span class="portfolio-card-label">Skin Prep</span>
+          </div>
+          <div class="portfolio-card" style="background-image:url('https://m.media-amazon.com/images/I/41mB7zGRWTL._AC_.jpg');background-size:cover;background-position:center;">
+            <div class="portfolio-card-play" aria-hidden="true"></div>
+            <span class="portfolio-card-label">Night Routine</span>
+          </div>
+          <div class="portfolio-card">
+            <div class="portfolio-card-play" aria-hidden="true"></div>
+            <span class="portfolio-card-label">First Impression</span>
+          </div>
+          <div class="portfolio-card">
+            <div class="portfolio-card-play" aria-hidden="true"></div>
+            <span class="portfolio-card-label">Before &amp; After</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- GRWM -->
+      <div class="tab-panel" id="tab-grwm" role="tabpanel">
+        <div class="portfolio-grid">
+          <div class="portfolio-card">
+            <div class="portfolio-card-play" aria-hidden="true"></div>
+            <span class="portfolio-card-label">Everyday GRWM</span>
+          </div>
+          <div class="portfolio-card">
+            <div class="portfolio-card-play" aria-hidden="true"></div>
+            <span class="portfolio-card-label">Date Night GRWM</span>
+          </div>
+          <div class="portfolio-card">
+            <div class="portfolio-card-play" aria-hidden="true"></div>
+            <span class="portfolio-card-label">Natural Glam</span>
+          </div>
+          <div class="portfolio-card">
+            <div class="portfolio-card-play" aria-hidden="true"></div>
+            <span class="portfolio-card-label">Full Beat GRWM</span>
+          </div>
+          <div class="portfolio-card">
+            <div class="portfolio-card-play" aria-hidden="true"></div>
+            <span class="portfolio-card-label">5-Minute Look</span>
+          </div>
+          <div class="portfolio-card">
+            <div class="portfolio-card-play" aria-hidden="true"></div>
+            <span class="portfolio-card-label">Summer Glam</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Reviews -->
+      <div class="tab-panel" id="tab-reviews" role="tabpanel">
+        <div class="portfolio-grid">
+          <div class="portfolio-card">
+            <div class="portfolio-card-play" aria-hidden="true"></div>
+            <span class="portfolio-card-label">Unboxing &amp; First Look</span>
+          </div>
+          <div class="portfolio-card">
+            <div class="portfolio-card-play" aria-hidden="true"></div>
+            <span class="portfolio-card-label">Honest Review</span>
+          </div>
+          <div class="portfolio-card">
+            <div class="portfolio-card-play" aria-hidden="true"></div>
+            <span class="portfolio-card-label">Comparison Review</span>
+          </div>
+          <div class="portfolio-card">
+            <div class="portfolio-card-play" aria-hidden="true"></div>
+            <span class="portfolio-card-label">Wear Test</span>
+          </div>
+          <div class="portfolio-card">
+            <div class="portfolio-card-play" aria-hidden="true"></div>
+            <span class="portfolio-card-label">Packaging &amp; Details</span>
+          </div>
+          <div class="portfolio-card">
+            <div class="portfolio-card-play" aria-hidden="true"></div>
+            <span class="portfolio-card-label">Full Collection</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lifestyle -->
+      <div class="tab-panel" id="tab-lifestyle" role="tabpanel">
+        <div class="portfolio-grid">
+          <div class="portfolio-card">
+            <div class="portfolio-card-play" aria-hidden="true"></div>
+            <span class="portfolio-card-label">Beauty Haul</span>
+          </div>
+          <div class="portfolio-card">
+            <div class="portfolio-card-play" aria-hidden="true"></div>
+            <span class="portfolio-card-label">Vanity Tour</span>
+          </div>
+          <div class="portfolio-card">
+            <div class="portfolio-card-play" aria-hidden="true"></div>
+            <span class="portfolio-card-label">Amazon Favorites</span>
+          </div>
+          <div class="portfolio-card">
+            <div class="portfolio-card-play" aria-hidden="true"></div>
+            <span class="portfolio-card-label">My Favorites</span>
+          </div>
+          <div class="portfolio-card">
+            <div class="portfolio-card-play" aria-hidden="true"></div>
+            <span class="portfolio-card-label">Day in My Life</span>
+          </div>
+          <div class="portfolio-card">
+            <div class="portfolio-card-play" aria-hidden="true"></div>
+            <span class="portfolio-card-label">Travel Beauty</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="portfolio-note">Skincare tab shows real product images from Gabi's Amazon Storefront · Remaining video thumbnails will be swapped in once provided</p>
+
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════
+       SERVICES
+  ════════════════════════════════ -->
+  <section id="services">
+    <div class="container">
+      <span class="eyebrow">What I Offer</span>
+      <h2 class="services-h2">Content that <em>works</em><br>for your brand.</h2>
+      <p class="services-intro">
+        From short-form video to lifestyle photography, I deliver polished,
+        brand-ready content that connects — in English or Spanish — without the
+        overhead of a full production team.
+      </p>
+      <div class="services-grid">
+        <div class="service-card">
+          <span class="service-icon">🎬</span>
+          <h3 class="service-title">Video UGC</h3>
+          <p class="service-desc">Short-form vertical video optimized for TikTok and Instagram Reels — scroll-stopping content shot and edited to platform best practices.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">📸</span>
+          <h3 class="service-title">Photo UGC</h3>
+          <p class="service-desc">Lifestyle product photography that feels natural, authentic, and brand-aligned — ready for organic posts, ads, or e-commerce listings.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">✨</span>
+          <h3 class="service-title">Unboxing &amp; First Impressions</h3>
+          <p class="service-desc">My specialty. Genuine, enthusiastic unboxing content that drives curiosity and purchase intent — delivered in English or Spanish.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">💄</span>
+          <h3 class="service-title">Tutorial &amp; How-To</h3>
+          <p class="service-desc">Step-by-step beauty tutorials that educate and inspire — showcasing your product in action with clear, engaging delivery.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">📱</span>
+          <h3 class="service-title">Instagram Story Content</h3>
+          <p class="service-desc">Story-format content built for engagement — product features, authentic everyday moments, and swipe-worthy visuals.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════
+       BRAND COLLABS
+  ════════════════════════════════ -->
+  <section class="alt" id="brands">
+    <div class="container">
+      <div class="brands-header">
+        <span class="eyebrow" style="text-align:center;">Brands I've worked with</span>
+        <h2 class="brands-h2">Trusted by brands that<br>believe in authenticity.</h2>
+      </div>
+      <div class="brands-carousel">
+        <div class="carousel-track">
+          <!-- Set 1 -->
+          <div class="brand-logo"><img src="Assets/LOreal-logo.png" alt="L'Oréal"></div>
+          <div class="brand-logo"><img src="Assets/elf-cosmetics-logo-png_seeklogo-447294.png" alt="e.l.f. Cosmetics"></div>
+          <div class="brand-logo"><img src="Assets/bobbi-brown-logo.jpeg" alt="Bobbi Brown"></div>
+          <div class="brand-logo"><img src="Assets/active-logo.png" alt="ACTIVE"></div>
+          <div class="brand-logo"><img src="Assets/slide-jewelry-logo.webp" alt="Slide"></div>
+          <div class="brand-logo"><img src="Assets/elizabeth-mott-thank-me-later-logo.jpeg" alt="Thank Me Later"></div>
+          <div class="brand-logo"><span class="brand-logo-text">Herbishh</span></div>
+          <!-- Set 2 — duplicate for seamless loop -->
+          <div class="brand-logo"><img src="Assets/LOreal-logo.png" alt="L'Oréal"></div>
+          <div class="brand-logo"><img src="Assets/elf-cosmetics-logo-png_seeklogo-447294.png" alt="e.l.f. Cosmetics"></div>
+          <div class="brand-logo"><img src="Assets/bobbi-brown-logo.jpeg" alt="Bobbi Brown"></div>
+          <div class="brand-logo"><img src="Assets/active-logo.png" alt="ACTIVE"></div>
+          <div class="brand-logo"><img src="Assets/slide-jewelry-logo.webp" alt="Slide"></div>
+          <div class="brand-logo"><img src="Assets/elizabeth-mott-thank-me-later-logo.jpeg" alt="Thank Me Later"></div>
+          <div class="brand-logo"><span class="brand-logo-text">Herbishh</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════
+       CONTACT
+  ════════════════════════════════ -->
+  <section class="contact-section" id="contact">
+    <div class="contact-inner">
+      <span class="contact-eyebrow">Let's work together</span>
+      <h2 class="contact-h2">Let's create something<br>beautiful.</h2>
+      <p class="contact-p">
+        Ready to bring your brand to life with content that actually connects?
+        Reach out — I'd love to hear about your project.
+      </p>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:14px;">
+        <a href="mailto:gabrielalobowk@gmail.com" class="btn-primary">
+          ✉&nbsp; Email Me
+        </a>
+        <div class="contact-email-display" onclick="navigator.clipboard.writeText('gabrielalobowk@gmail.com');" title="Click to copy email">
+          gabrielalobowk@gmail.com
+          <span class="contact-email-tooltip">Click to copy</span>
+        </div>
+      </div>
+      <div class="contact-divider"></div>
+      <p class="contact-handle">@gabslobo__ &nbsp;·&nbsp; Beauty &amp; Makeup UGC Creator</p>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════
+       FOOTER
+  ════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer-social">
+      <a href="https://www.instagram.com/gabslobo__" target="_blank" rel="noopener noreferrer" class="footer-social-link instagram" title="Instagram">
+        <i class="fab fa-instagram" aria-hidden="true"></i>
+      </a>
+      <a href="https://www.tiktok.com/@gabslobo_" target="_blank" rel="noopener noreferrer" class="footer-social-link tiktok" title="TikTok">
+        <i class="fab fa-tiktok" aria-hidden="true"></i>
+      </a>
+      <a href="https://a.co/d/02YYw133" target="_blank" rel="noopener noreferrer" class="footer-social-link amazon" title="Amazon Storefront">
+        <i class="fab fa-amazon" aria-hidden="true"></i>
+      </a>
+    </div>
+    <p>&copy; 2025 Gabs Lobo &nbsp;·&nbsp; UGC Creator &nbsp;·&nbsp; Beauty &amp; Makeup</p>
+  </footer>
+
+
+  <script>
+    // ── Navbar scroll effect ──────────────────────────
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    // ── Mobile menu ───────────────────────────────────
+    const hamburger  = document.getElementById('hamburger');
+    const mobileNav  = document.getElementById('mobileNav');
+    const mobileClose = document.getElementById('mobileClose');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    const openMenu  = () => { mobileNav.classList.add('open');    mobileNav.setAttribute('aria-hidden', 'false'); };
+    const closeMenu = () => { mobileNav.classList.remove('open'); mobileNav.setAttribute('aria-hidden', 'true');  };
+
+    hamburger.addEventListener('click', openMenu);
+    mobileClose.addEventListener('click', closeMenu);
+    mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+    // ── Portfolio tab switching ───────────────────────
+    const tabBtns   = document.querySelectorAll('.tab-btn');
+    const tabPanels = document.querySelectorAll('.tab-panel');
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.dataset.tab;
+
+        tabBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+        tabPanels.forEach(p => p.classList.remove('active'));
+
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+        document.getElementById('tab-' + target).classList.add('active');
+      });
+    });
+
+
+  </script>
+
+</body>
+</html>

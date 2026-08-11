@@ -573,6 +573,16 @@
       gap: 20px;
     }
 
+    /* Centered variant — for panels with fewer cards than a full row */
+    .portfolio-grid.grid-center {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .portfolio-grid.grid-center .phone-wrap { flex: 0 0 200px; }
+
     /* ── iPhone phone mockup cards ─────────────────────── */
     .phone-wrap {
       display: flex;
@@ -581,6 +591,8 @@
       gap: 14px;
       cursor: pointer;
       transition: transform 0.25s;
+      text-decoration: none;
+      color: inherit;
     }
 
     .phone-wrap:hover { transform: translateY(-6px); }
@@ -658,11 +670,10 @@
       z-index: 1;
     }
 
-    .phone-wrap:nth-child(2) .phone-screen { background: linear-gradient(155deg, #C4908B 0%, #A07068 100%); }
-    .phone-wrap:nth-child(3) .phone-screen { background: linear-gradient(155deg, #D4B896 0%, #C4908B 100%); }
-    .phone-wrap:nth-child(4) .phone-screen { background: linear-gradient(155deg, #E0CAB4 0%, #C4908B 100%); }
-    .phone-wrap:nth-child(5) .phone-screen { background: linear-gradient(155deg, #C4908B 0%, #E0CAB4 100%); }
-    .phone-wrap:nth-child(6) .phone-screen { background: linear-gradient(155deg, #A87A74 0%, #D4B896 100%); }
+    /* Per-card gradients were placeholders for cards without thumbnails.
+       Every card now carries a real video thumbnail, and the `background`
+       shorthand here reset background-size to auto — which broke the cover
+       crop. The base .phone-screen gradient remains as the fallback. */
 
     /* Play button ring */
     .portfolio-card-play {
@@ -868,7 +879,7 @@
     }
 
     .brand-logo img {
-      max-width: 100%;
+      max-width: 175px;   /* keeps wide wordmarks (Garnier) from stretching their tile */
       max-height: 70px;
       width: auto;
       object-fit: contain;
@@ -1085,6 +1096,7 @@
 
     @media (max-width: 480px) {
       .portfolio-grid { grid-template-columns: 1fr; }
+      .portfolio-grid.grid-center .phone-wrap { flex: 0 0 100%; }
       .stats-grid { grid-template-columns: 1fr; }
       .hero-btns { flex-direction: column; align-items: center; }
       .btn-primary, .btn-ghost { width: 100%; text-align: center; }
@@ -1219,252 +1231,94 @@
       <!-- Tabs -->
       <div class="tab-bar" role="tablist">
         <button class="tab-btn active" data-tab="skincare" role="tab" aria-selected="true">Skincare &amp; Routine</button>
-        <button class="tab-btn"        data-tab="grwm"     role="tab" aria-selected="false">GRWM</button>
-        <button class="tab-btn"        data-tab="reviews"  role="tab" aria-selected="false">Product Reviews</button>
-        <button class="tab-btn"        data-tab="lifestyle" role="tab" aria-selected="false">Lifestyle</button>
+        <button class="tab-btn"        data-tab="petcare"  role="tab" aria-selected="false">Pet Care</button>
       </div>
 
       <!-- Skincare & Routine -->
       <div class="tab-panel active" id="tab-skincare" role="tabpanel">
         <div class="portfolio-grid">
-          <div class="phone-wrap">
+          <a class="phone-wrap" href="https://a.co/d/04gtpj1q" target="_blank" rel="noopener noreferrer" aria-label="Watch Hair Mask video on Amazon">
             <div class="phone-frame">
               <div class="phone-island"></div>
-              <div class="phone-screen" style="background-image:url('https://m.media-amazon.com/images/I/51cimhL4MkL._AC_.jpg');background-size:cover;background-position:center;">
+              <div class="phone-screen" style="background-image:url('Assets/portfolio/hair-mask.jpg');">
                 <div class="portfolio-card-play" aria-hidden="true"></div>
               </div>
             </div>
-            <span class="portfolio-card-label">Morning Routine</span>
-          </div>
-          <div class="phone-wrap">
+            <span class="portfolio-card-label">Hair Mask</span>
+          </a>
+          <a class="phone-wrap" href="https://a.co/d/0hyEyb5j" target="_blank" rel="noopener noreferrer" aria-label="Watch Product Unboxing video on Amazon">
             <div class="phone-frame">
               <div class="phone-island"></div>
-              <div class="phone-screen" style="background-image:url('https://m.media-amazon.com/images/I/41UYaTLBTxL._AC_.jpg');background-size:cover;background-position:center;">
+              <div class="phone-screen" style="background-image:url('Assets/portfolio/product-unboxing.jpg');">
                 <div class="portfolio-card-play" aria-hidden="true"></div>
               </div>
             </div>
             <span class="portfolio-card-label">Product Unboxing</span>
-          </div>
-          <div class="phone-wrap">
+          </a>
+          <a class="phone-wrap" href="https://a.co/d/08PNvfQt" target="_blank" rel="noopener noreferrer" aria-label="Watch Skin Prep video on Amazon">
             <div class="phone-frame">
               <div class="phone-island"></div>
-              <div class="phone-screen" style="background-image:url('https://m.media-amazon.com/images/I/51kdQ5+IR9L._AC_.jpg');background-size:cover;background-position:center;">
+              <div class="phone-screen" style="background-image:url('Assets/portfolio/skin-prep.jpg');">
                 <div class="portfolio-card-play" aria-hidden="true"></div>
               </div>
             </div>
             <span class="portfolio-card-label">Skin Prep</span>
-          </div>
-          <div class="phone-wrap">
+          </a>
+          <a class="phone-wrap" href="https://a.co/d/0dOOqTBK" target="_blank" rel="noopener noreferrer" aria-label="Watch Night Routine video on Amazon">
             <div class="phone-frame">
               <div class="phone-island"></div>
-              <div class="phone-screen" style="background-image:url('https://m.media-amazon.com/images/I/41mB7zGRWTL._AC_.jpg');background-size:cover;background-position:center;">
+              <div class="phone-screen" style="background-image:url('Assets/portfolio/night-routine.jpg');">
                 <div class="portfolio-card-play" aria-hidden="true"></div>
               </div>
             </div>
             <span class="portfolio-card-label">Night Routine</span>
-          </div>
-          <div class="phone-wrap">
+          </a>
+          <a class="phone-wrap" href="https://a.co/d/07OIKvcn" target="_blank" rel="noopener noreferrer" aria-label="Watch First Impression video on Amazon">
             <div class="phone-frame">
               <div class="phone-island"></div>
-              <div class="phone-screen">
+              <div class="phone-screen" style="background-image:url('Assets/portfolio/first-impression.jpg');">
                 <div class="portfolio-card-play" aria-hidden="true"></div>
               </div>
             </div>
             <span class="portfolio-card-label">First Impression</span>
-          </div>
-          <div class="phone-wrap">
+          </a>
+          <a class="phone-wrap" href="https://a.co/d/03LWbvOA" target="_blank" rel="noopener noreferrer" aria-label="Watch Before and After video on Amazon">
             <div class="phone-frame">
               <div class="phone-island"></div>
-              <div class="phone-screen">
+              <div class="phone-screen" style="background-image:url('Assets/portfolio/before-after.jpg');">
                 <div class="portfolio-card-play" aria-hidden="true"></div>
               </div>
             </div>
             <span class="portfolio-card-label">Before &amp; After</span>
-          </div>
+          </a>
         </div>
       </div>
 
-      <!-- GRWM -->
-      <div class="tab-panel" id="tab-grwm" role="tabpanel">
-        <div class="portfolio-grid">
-          <div class="phone-wrap">
+      <!-- Pet Care -->
+      <div class="tab-panel" id="tab-petcare" role="tabpanel">
+        <div class="portfolio-grid grid-center">
+          <a class="phone-wrap" href="https://a.co/d/0eTAU760" target="_blank" rel="noopener noreferrer" aria-label="Watch Dog Supplements video on Amazon">
             <div class="phone-frame">
               <div class="phone-island"></div>
-              <div class="phone-screen">
+              <div class="phone-screen" style="background-image:url('Assets/portfolio/dog-supplements.jpg');">
                 <div class="portfolio-card-play" aria-hidden="true"></div>
               </div>
             </div>
-            <span class="portfolio-card-label">Everyday GRWM</span>
-          </div>
-          <div class="phone-wrap">
+            <span class="portfolio-card-label">Dog Supplements</span>
+          </a>
+          <a class="phone-wrap" href="https://a.co/d/0aSCWzEa" target="_blank" rel="noopener noreferrer" aria-label="Watch Pet Accessories video on Amazon">
             <div class="phone-frame">
               <div class="phone-island"></div>
-              <div class="phone-screen">
+              <div class="phone-screen" style="background-image:url('Assets/portfolio/pet-accessories.jpg');">
                 <div class="portfolio-card-play" aria-hidden="true"></div>
               </div>
             </div>
-            <span class="portfolio-card-label">Date Night GRWM</span>
-          </div>
-          <div class="phone-wrap">
-            <div class="phone-frame">
-              <div class="phone-island"></div>
-              <div class="phone-screen">
-                <div class="portfolio-card-play" aria-hidden="true"></div>
-              </div>
-            </div>
-            <span class="portfolio-card-label">Natural Glam</span>
-          </div>
-          <div class="phone-wrap">
-            <div class="phone-frame">
-              <div class="phone-island"></div>
-              <div class="phone-screen">
-                <div class="portfolio-card-play" aria-hidden="true"></div>
-              </div>
-            </div>
-            <span class="portfolio-card-label">Full Beat GRWM</span>
-          </div>
-          <div class="phone-wrap">
-            <div class="phone-frame">
-              <div class="phone-island"></div>
-              <div class="phone-screen">
-                <div class="portfolio-card-play" aria-hidden="true"></div>
-              </div>
-            </div>
-            <span class="portfolio-card-label">5-Minute Look</span>
-          </div>
-          <div class="phone-wrap">
-            <div class="phone-frame">
-              <div class="phone-island"></div>
-              <div class="phone-screen">
-                <div class="portfolio-card-play" aria-hidden="true"></div>
-              </div>
-            </div>
-            <span class="portfolio-card-label">Summer Glam</span>
-          </div>
+            <span class="portfolio-card-label">Pet Accessories</span>
+          </a>
         </div>
       </div>
 
-      <!-- Product Reviews -->
-      <div class="tab-panel" id="tab-reviews" role="tabpanel">
-        <div class="portfolio-grid">
-          <div class="phone-wrap">
-            <div class="phone-frame">
-              <div class="phone-island"></div>
-              <div class="phone-screen">
-                <div class="portfolio-card-play" aria-hidden="true"></div>
-              </div>
-            </div>
-            <span class="portfolio-card-label">Unboxing &amp; First Look</span>
-          </div>
-          <div class="phone-wrap">
-            <div class="phone-frame">
-              <div class="phone-island"></div>
-              <div class="phone-screen">
-                <div class="portfolio-card-play" aria-hidden="true"></div>
-              </div>
-            </div>
-            <span class="portfolio-card-label">Honest Review</span>
-          </div>
-          <div class="phone-wrap">
-            <div class="phone-frame">
-              <div class="phone-island"></div>
-              <div class="phone-screen">
-                <div class="portfolio-card-play" aria-hidden="true"></div>
-              </div>
-            </div>
-            <span class="portfolio-card-label">Comparison Review</span>
-          </div>
-          <div class="phone-wrap">
-            <div class="phone-frame">
-              <div class="phone-island"></div>
-              <div class="phone-screen">
-                <div class="portfolio-card-play" aria-hidden="true"></div>
-              </div>
-            </div>
-            <span class="portfolio-card-label">Wear Test</span>
-          </div>
-          <div class="phone-wrap">
-            <div class="phone-frame">
-              <div class="phone-island"></div>
-              <div class="phone-screen">
-                <div class="portfolio-card-play" aria-hidden="true"></div>
-              </div>
-            </div>
-            <span class="portfolio-card-label">Packaging &amp; Details</span>
-          </div>
-          <div class="phone-wrap">
-            <div class="phone-frame">
-              <div class="phone-island"></div>
-              <div class="phone-screen">
-                <div class="portfolio-card-play" aria-hidden="true"></div>
-              </div>
-            </div>
-            <span class="portfolio-card-label">Full Collection</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Lifestyle -->
-      <div class="tab-panel" id="tab-lifestyle" role="tabpanel">
-        <div class="portfolio-grid">
-          <div class="phone-wrap">
-            <div class="phone-frame">
-              <div class="phone-island"></div>
-              <div class="phone-screen">
-                <div class="portfolio-card-play" aria-hidden="true"></div>
-              </div>
-            </div>
-            <span class="portfolio-card-label">Beauty Haul</span>
-          </div>
-          <div class="phone-wrap">
-            <div class="phone-frame">
-              <div class="phone-island"></div>
-              <div class="phone-screen">
-                <div class="portfolio-card-play" aria-hidden="true"></div>
-              </div>
-            </div>
-            <span class="portfolio-card-label">Vanity Tour</span>
-          </div>
-          <div class="phone-wrap">
-            <div class="phone-frame">
-              <div class="phone-island"></div>
-              <div class="phone-screen">
-                <div class="portfolio-card-play" aria-hidden="true"></div>
-              </div>
-            </div>
-            <span class="portfolio-card-label">Amazon Favorites</span>
-          </div>
-          <div class="phone-wrap">
-            <div class="phone-frame">
-              <div class="phone-island"></div>
-              <div class="phone-screen">
-                <div class="portfolio-card-play" aria-hidden="true"></div>
-              </div>
-            </div>
-            <span class="portfolio-card-label">My Favorites</span>
-          </div>
-          <div class="phone-wrap">
-            <div class="phone-frame">
-              <div class="phone-island"></div>
-              <div class="phone-screen">
-                <div class="portfolio-card-play" aria-hidden="true"></div>
-              </div>
-            </div>
-            <span class="portfolio-card-label">Day in My Life</span>
-          </div>
-          <div class="phone-wrap">
-            <div class="phone-frame">
-              <div class="phone-island"></div>
-              <div class="phone-screen">
-                <div class="portfolio-card-play" aria-hidden="true"></div>
-              </div>
-            </div>
-            <span class="portfolio-card-label">Travel Beauty</span>
-          </div>
-        </div>
-      </div>
-
-      <p class="portfolio-note">Skincare tab shows real product images from Gabi's Amazon Storefront · Remaining video thumbnails will be swapped in once provided</p>
+      <p class="portfolio-note">Tap any video to watch it on Amazon · More categories coming soon</p>
 
     </div>
   </section>
@@ -1525,21 +1379,25 @@
       <div class="brands-carousel">
         <div class="carousel-track">
           <!-- Set 1 -->
-          <div class="brand-logo"><img src="Assets/LOreal-logo.png" alt="L'Oréal"></div>
-          <div class="brand-logo"><img src="Assets/elf-cosmetics-logo-png_seeklogo-447294.png" alt="e.l.f. Cosmetics"></div>
-          <div class="brand-logo"><img src="Assets/bobbi-brown-logo.jpeg" alt="Bobbi Brown"></div>
-          <div class="brand-logo"><img src="Assets/active-logo.png" alt="ACTIVE"></div>
-          <div class="brand-logo"><img src="Assets/slide-jewelry-logo.webp" alt="Slide"></div>
-          <div class="brand-logo"><img src="Assets/elizabeth-mott-thank-me-later-logo.jpeg" alt="Thank Me Later"></div>
-          <div class="brand-logo"><img src="Assets/final-logo-herbishh.webp" alt="Herbishh"></div>
+          <div class="brand-logo"><img src="Assets/LOreal-logo.png" alt="L'Oréal" loading="lazy"></div>
+          <div class="brand-logo"><img src="Assets/garnier-logo.svg" alt="Garnier" loading="lazy"></div>
+          <div class="brand-logo"><img src="Assets/la-roche-posay-logo.svg" alt="La Roche-Posay" loading="lazy"></div>
+          <div class="brand-logo"><img src="Assets/elf-cosmetics-logo-png_seeklogo-447294.png" alt="e.l.f. Cosmetics" loading="lazy"></div>
+          <div class="brand-logo"><img src="Assets/bobbi-brown-logo.jpeg" alt="Bobbi Brown" loading="lazy"></div>
+          <div class="brand-logo"><img src="Assets/active-logo.png" alt="ACTIVE" loading="lazy"></div>
+          <div class="brand-logo"><img src="Assets/slide-jewelry-logo.webp" alt="Slide" loading="lazy"></div>
+          <div class="brand-logo"><img src="Assets/elizabeth-mott-thank-me-later-logo.jpeg" alt="Thank Me Later" loading="lazy"></div>
+          <div class="brand-logo"><img src="Assets/final-logo-herbishh.webp" alt="Herbishh" loading="lazy"></div>
           <!-- Set 2 — duplicate for seamless loop -->
-          <div class="brand-logo"><img src="Assets/LOreal-logo.png" alt="L'Oréal"></div>
-          <div class="brand-logo"><img src="Assets/elf-cosmetics-logo-png_seeklogo-447294.png" alt="e.l.f. Cosmetics"></div>
-          <div class="brand-logo"><img src="Assets/bobbi-brown-logo.jpeg" alt="Bobbi Brown"></div>
-          <div class="brand-logo"><img src="Assets/active-logo.png" alt="ACTIVE"></div>
-          <div class="brand-logo"><img src="Assets/slide-jewelry-logo.webp" alt="Slide"></div>
-          <div class="brand-logo"><img src="Assets/elizabeth-mott-thank-me-later-logo.jpeg" alt="Thank Me Later"></div>
-          <div class="brand-logo"><img src="Assets/final-logo-herbishh.webp" alt="Herbishh"></div>
+          <div class="brand-logo"><img src="Assets/LOreal-logo.png" alt="L'Oréal" loading="lazy"></div>
+          <div class="brand-logo"><img src="Assets/garnier-logo.svg" alt="Garnier" loading="lazy"></div>
+          <div class="brand-logo"><img src="Assets/la-roche-posay-logo.svg" alt="La Roche-Posay" loading="lazy"></div>
+          <div class="brand-logo"><img src="Assets/elf-cosmetics-logo-png_seeklogo-447294.png" alt="e.l.f. Cosmetics" loading="lazy"></div>
+          <div class="brand-logo"><img src="Assets/bobbi-brown-logo.jpeg" alt="Bobbi Brown" loading="lazy"></div>
+          <div class="brand-logo"><img src="Assets/active-logo.png" alt="ACTIVE" loading="lazy"></div>
+          <div class="brand-logo"><img src="Assets/slide-jewelry-logo.webp" alt="Slide" loading="lazy"></div>
+          <div class="brand-logo"><img src="Assets/elizabeth-mott-thank-me-later-logo.jpeg" alt="Thank Me Later" loading="lazy"></div>
+          <div class="brand-logo"><img src="Assets/final-logo-herbishh.webp" alt="Herbishh" loading="lazy"></div>
         </div>
       </div>
     </div>

@@ -10,7 +10,7 @@
 ## Tech Stack
 - Pure HTML/CSS/JS — single file (`index.html`)
 - Fonts: Playfair Display (serif) + Outfit (sans) via Google Fonts
-- Icons: Font Awesome 6.5.1 (CDN) — Instagram, TikTok, YouTube, Amazon in footer
+- Icons: Font Awesome 6.5.1 (CDN) — Amazon, Instagram, TikTok, YouTube in footer
 - No frameworks, no build step — edit `index.html` and push to deploy
 
 ## File Structure
@@ -55,15 +55,17 @@ vertical still of the video. Steps to add a new one:
 5. **Services** — 5 service cards (Video UGC, Photo UGC, Unboxing, Tutorial, Stories)
 6. **Brands** — auto-scrolling logo carousel (pauses on hover)
 7. **Contact** — dark section with Email Me button + email address
-8. **Footer** — Instagram, TikTok, YouTube, Amazon icons + copyright
+8. **Footer** — Amazon, Instagram, TikTok, YouTube icons + copyright
 
 ### Footer social links
+In display order (Amazon first):
+
 | Platform | URL |
 |---|---|
+| Amazon Storefront | https://a.co/d/02YYw133 |
 | Instagram | https://www.instagram.com/gabslobo__ |
 | TikTok | https://www.tiktok.com/@gabslobo_ |
 | YouTube | https://www.youtube.com/@Gabsloboo |
-| Amazon Storefront | https://a.co/d/02YYw133 |
 
 The `.instagram` / `.tiktok` / `.youtube` / `.amazon` classes are semantic hooks only —
 all styling comes from `.footer-social-link`, so a new platform just needs the matching
